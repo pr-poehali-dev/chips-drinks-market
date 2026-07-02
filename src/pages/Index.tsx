@@ -15,10 +15,10 @@ const nav = [
 ];
 
 const categories = [
-  { name: 'Чипсы и снеки', tag: '120+ SKU', img: CHIP, color: 'bg-[hsl(var(--lime))]' },
-  { name: 'Газированные напитки', tag: '90+ SKU', img: SODA, color: 'bg-[hsl(var(--cyan))]' },
-  { name: 'Энергетики', tag: '40+ SKU', img: SODA, color: 'bg-accent' },
-  { name: 'Экзотика и лимитки', tag: '60+ SKU', img: CHIP, color: 'bg-primary text-primary-foreground' },
+  { name: 'Снеки из Кореи', tag: '🇰🇷 80+ SKU', img: CHIP, color: 'bg-[hsl(var(--lime))]' },
+  { name: 'Напитки из Китая', tag: '🇨🇳 90+ SKU', img: SODA, color: 'bg-[hsl(var(--cyan))]' },
+  { name: 'Снеки из Вьетнама', tag: '🇻🇳 50+ SKU', img: CHIP, color: 'bg-accent' },
+  { name: 'Азиатские лимитки', tag: '🌏 60+ SKU', img: SODA, color: 'bg-primary text-primary-foreground' },
 ];
 
 const terms = [
@@ -38,7 +38,7 @@ const steps = [
 const partners = ['РИТЕЙЛ+', 'МЕГАМАРТ', 'ФРЕШ', 'СЕТЬ24', 'GLOBUS', 'СНЕК-МАРКЕТ'];
 
 const Index = () => {
-  const marquee = ['ИМПОРТ ИЗ 20 СТРАН', 'ПРЯМЫЕ КОНТРАКТЫ', 'ОТ 1 ПАЛЛЕТЫ', 'ПОСТАВКИ ПО ВСЕЙ РФ', 'ЭДО И СЕРТИФИКАТЫ'];
+  const marquee = ['🇰🇷 ЮЖНАЯ КОРЕЯ', '🇨🇳 КИТАЙ', '🇻🇳 ВЬЕТНАМ', 'ПРЯМЫЕ КОНТРАКТЫ', 'ОТ 1 ПАЛЛЕТЫ', 'ПОСТАВКИ ПО ВСЕЙ РФ', 'ЭДО И СЕРТИФИКАТЫ'];
 
   return (
     <div className="min-h-screen font-body text-foreground overflow-x-hidden">
@@ -79,13 +79,13 @@ const Index = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-in">
             <span className="inline-block bg-[hsl(var(--lime))] border-2 border-foreground rounded-full px-4 py-1 text-sm font-bold mb-6 shadow-pop-sm">
-              🚚 Оптовый поставщик импортных снеков и напитков
+              🌏 Оптовый поставщик азиатских снеков и напитков
             </span>
             <h1 className="font-display font-extrabold leading-[0.95] text-5xl md:text-7xl">
               ОПТОВЫЕ <span className="text-primary text-stroke text-background">ПОСТАВКИ</span> В СЕТИ
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-md">
-              Прямые контракты с производителями из 20 стран. Наполняем полки федеральных и региональных сетей вирусными вкусами — стабильно и в объёме.
+              Прямые контракты с производителями Китая, Вьетнама и Южной Кореи. Наполняем полки федеральных и региональных сетей азиатскими хитами — стабильно и в объёме.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="rounded-full border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary shadow-pop font-bold text-base h-13 px-8" asChild>
@@ -96,7 +96,7 @@ const Index = () => {
               </Button>
             </div>
             <div className="mt-10 flex gap-8">
-              {[['20+', 'стран-поставщиков'], ['310+', 'позиций (SKU)'], ['от 1', 'паллеты отгрузка']].map(([a, b]) => (
+              {[['3', 'страны: КНР, VN, KR'], ['280+', 'позиций (SKU)'], ['от 1', 'паллеты отгрузка']].map(([a, b]) => (
                 <div key={b}>
                   <div className="font-display font-extrabold text-3xl text-primary">{a}</div>
                   <div className="text-sm text-muted-foreground">{b}</div>
@@ -187,16 +187,15 @@ const Index = () => {
           <div className="bg-accent border-2 border-foreground rounded-[2rem] p-8 md:p-12 shadow-pop">
             <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-5">О КОМПАНИИ</h2>
             <p className="text-lg text-foreground/80">
-              SNACK OPT — прямой импортёр и дистрибьютор трендовых снеков и напитков. Мы работаем с производителями напрямую,
-              обеспечивая сетям стабильные поставки, легальный ввоз и полный пакет документов.
+              SNACK OPT — прямой импортёр и дистрибьютор снеков и напитков из Китая, Вьетнама и Южной Кореи. Работаем с заводами-производителями без посредников, обеспечивая легальный ввоз и полный пакет документов.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5">
             {[
-              { icon: 'Ship', t: 'Прямой импорт', d: 'Без посредников — честная закупочная цена' },
-              { icon: 'BadgeCheck', t: 'Легальный ввоз', d: 'Сертификаты, декларации, маркировка' },
+              { icon: 'Ship', t: 'Прямые заводы', d: 'Контракты с производителями КНР, VN, KR' },
+              { icon: 'BadgeCheck', t: 'Легальный ввоз', d: 'Сертификаты, декларации, маркировка на RU' },
               { icon: 'Warehouse', t: 'Свой склад', d: 'Товарный запас и быстрая отгрузка' },
-              { icon: 'TrendingUp', t: 'Трендовый ассортимент', d: 'Хиты соцсетей, повышающие оборот полки' },
+              { icon: 'TrendingUp', t: 'Азиатские хиты', d: 'Вирусные товары, поднимающие оборот полки' },
             ].map((f) => (
               <div key={f.t} className="border-2 border-foreground rounded-2xl p-5 bg-background shadow-pop-sm">
                 <div className="bg-primary text-primary-foreground w-11 h-11 rounded-xl flex items-center justify-center border-2 border-foreground mb-3">
