@@ -78,8 +78,8 @@ const Index = () => {
       <header className="sticky top-0 z-50 bg-background border-b-2 border-foreground">
         <div className="container flex items-center justify-between h-16">
           <a href="#home" className="font-display font-extrabold text-2xl tracking-tight flex items-center gap-2">
-            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">SNACK</span>
-            <span>OPT</span>
+            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">КАПА</span>
+            <span>ИМПОРТ</span>
           </a>
           <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold">
             {nav.map((n) => (
@@ -111,7 +111,7 @@ const Index = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-in">
             <span className="inline-block bg-[hsl(var(--lime))] border-2 border-foreground rounded-full px-4 py-1 text-sm font-bold mb-6 shadow-pop-sm">
-              🌏 Оптовый поставщик азиатских снеков и напитков
+              🌏 ООО «КАПА Импорт» — оптовый поставщик азиатских снеков и напитков
             </span>
             <h1 className="font-display font-extrabold leading-[0.95] text-5xl md:text-7xl">
               ОПТОВЫЕ <span className="text-primary text-stroke text-background">ПОСТАВКИ</span> В СЕТИ
@@ -245,7 +245,7 @@ const Index = () => {
           <div className="bg-accent border-2 border-foreground rounded-[2rem] p-8 md:p-12 shadow-pop">
             <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-5">О КОМПАНИИ</h2>
             <p className="text-lg text-foreground/80">
-              SNACK OPT — прямой импортёр и дистрибьютор снеков и напитков из Китая, Вьетнама и Южной Кореи. Работаем с заводами-производителями без посредников, обеспечивая легальный ввоз и полный пакет документов.
+              ООО «КАПА Импорт» — прямой импортёр и дистрибьютор снеков и напитков из Китая, Вьетнама и Южной Кореи. Работаем с заводами-производителями без посредников, обеспечивая легальный ввоз и полный пакет документов.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5">
@@ -297,7 +297,7 @@ const Index = () => {
                 { icon: 'Phone', t: '+7 (900) 123-45-67' },
                 { icon: 'Mail', t: 'b2b@snackopt.ru' },
                 { icon: 'MapPin', t: 'Москва, ул. Складская, 7' },
-                { icon: 'Building2', t: 'ООО «Снек Опт» · работаем по договору' },
+                { icon: 'Building2', t: 'ООО «КАПА Импорт» · работаем по договору' },
               ].map((c) => (
                 <div key={c.t} className="flex items-center gap-4">
                   <div className="bg-primary text-primary-foreground w-11 h-11 rounded-xl flex items-center justify-center border-2 border-foreground">
@@ -334,9 +334,9 @@ const Index = () => {
       <footer className="bg-foreground text-background py-10 border-t-2 border-foreground">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display font-extrabold text-2xl">
-            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">SNACK</span> OPT
+            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">КАПА</span> ИМПОРТ
           </div>
-          <p className="text-sm text-background/60">© 2026 SNACK OPT · Оптовые поставки в торговые сети</p>
+          <p className="text-sm text-background/60">© 2026 ООО «КАПА Импорт» · Оптовые поставки в торговые сети</p>
         </div>
       </footer>
     </div>
