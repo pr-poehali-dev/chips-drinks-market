@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
@@ -8,33 +7,38 @@ const SODA = 'https://cdn.poehali.dev/projects/aa4a8a27-ddba-4aed-8f31-783dbea74
 
 const nav = [
   { label: 'Главная', href: '#home' },
-  { label: 'Каталог', href: '#catalog' },
-  { label: 'Акции', href: '#sale' },
-  { label: 'О нас', href: '#about' },
-  { label: 'Доставка', href: '#delivery' },
+  { label: 'Ассортимент', href: '#catalog' },
+  { label: 'Условия', href: '#terms' },
+  { label: 'О компании', href: '#about' },
+  { label: 'Логистика', href: '#delivery' },
   { label: 'Контакты', href: '#contacts' },
 ];
 
-const products = [
-  { name: 'Takis Fuego', tag: 'Мексика', price: 390, img: CHIP, color: 'bg-[hsl(var(--lime))]' },
-  { name: 'Mtn Dew Baja', tag: 'США', price: 290, img: SODA, color: 'bg-[hsl(var(--cyan))]' },
-  { name: 'Lays Ketchup', tag: 'Канада', price: 350, img: CHIP, color: 'bg-accent' },
-  { name: 'Ramune Original', tag: 'Япония', price: 340, img: SODA, color: 'bg-primary text-primary-foreground' },
-  { name: 'Cheetos Flamin', tag: 'США', price: 420, img: CHIP, color: 'bg-[hsl(var(--lime))]' },
-  { name: 'Fanta Exotic', tag: 'Германия', price: 260, img: SODA, color: 'bg-accent' },
-  { name: 'Doritos Blaze', tag: 'США', price: 410, img: CHIP, color: 'bg-[hsl(var(--cyan))]' },
-  { name: 'A&W Root Beer', tag: 'США', price: 310, img: SODA, color: 'bg-primary text-primary-foreground' },
+const categories = [
+  { name: 'Чипсы и снеки', tag: '120+ SKU', img: CHIP, color: 'bg-[hsl(var(--lime))]' },
+  { name: 'Газированные напитки', tag: '90+ SKU', img: SODA, color: 'bg-[hsl(var(--cyan))]' },
+  { name: 'Энергетики', tag: '40+ SKU', img: SODA, color: 'bg-accent' },
+  { name: 'Экзотика и лимитки', tag: '60+ SKU', img: CHIP, color: 'bg-primary text-primary-foreground' },
 ];
 
-const sales = [
-  { name: 'Pringles Box x6', old: 2400, price: 1490, off: '-38%', img: CHIP },
-  { name: 'Pepsi Cherry 12шт', old: 3600, price: 2290, off: '-36%', img: SODA },
-  { name: 'Snack Mix Party', old: 1900, price: 990, off: '-48%', img: CHIP },
+const terms = [
+  { icon: 'Boxes', t: 'Отгрузка от 1 паллеты', d: 'Гибкий объём под сеть любого масштаба' },
+  { icon: 'Percent', t: 'Оптовые цены', d: 'Прогрессивная скидка от объёма заказа' },
+  { icon: 'FileText', t: 'Отсрочка платежа', d: 'До 45 дней для проверенных сетей' },
+  { icon: 'ShieldCheck', t: 'Все документы', d: 'Сертификаты, декларации, ЭДО' },
 ];
+
+const steps = [
+  { n: '01', t: 'Заявка', d: 'Оставляете запрос — получаете актуальный прайс' },
+  { n: '02', t: 'КП и договор', d: 'Согласуем ассортимент, цены и условия' },
+  { n: '03', t: 'Отгрузка', d: 'Формируем и доставляем партию на ваш РЦ' },
+  { n: '04', t: 'Регулярность', d: 'Плановые поставки по графику сети' },
+];
+
+const partners = ['РИТЕЙЛ+', 'МЕГАМАРТ', 'ФРЕШ', 'СЕТЬ24', 'GLOBUS', 'СНЕК-МАРКЕТ'];
 
 const Index = () => {
-  const [cart, setCart] = useState(0);
-  const marquee = ['ИМПОРТ ИЗ 20 СТРАН', 'ДОСТАВКА ЗА 60 МИН', 'НОВИНКИ КАЖДУЮ НЕДЕЛЮ', 'ХИТЫ TIKTOK', 'ОСТРО • СЛАДКО • ВКУСНО'];
+  const marquee = ['ИМПОРТ ИЗ 20 СТРАН', 'ПРЯМЫЕ КОНТРАКТЫ', 'ОТ 1 ПАЛЛЕТЫ', 'ПОСТАВКИ ПО ВСЕЙ РФ', 'ЭДО И СЕРТИФИКАТЫ'];
 
   return (
     <div className="min-h-screen font-body text-foreground overflow-x-hidden">
@@ -43,7 +47,7 @@ const Index = () => {
         <div className="container flex items-center justify-between h-16">
           <a href="#home" className="font-display font-extrabold text-2xl tracking-tight flex items-center gap-2">
             <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">SNACK</span>
-            <span>RUSH</span>
+            <span>OPT</span>
           </a>
           <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold">
             {nav.map((n) => (
@@ -53,9 +57,8 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <Button className="rounded-full border-2 border-foreground bg-accent text-accent-foreground hover:bg-accent shadow-pop-sm font-bold gap-2">
-            <Icon name="ShoppingCart" size={18} />
-            {cart}
+          <Button className="rounded-full border-2 border-foreground bg-accent text-accent-foreground hover:bg-accent shadow-pop-sm font-bold gap-2" asChild>
+            <a href="#contacts"><Icon name="Download" size={18} />Прайс-лист</a>
           </Button>
         </div>
       </header>
@@ -76,24 +79,24 @@ const Index = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-in">
             <span className="inline-block bg-[hsl(var(--lime))] border-2 border-foreground rounded-full px-4 py-1 text-sm font-bold mb-6 shadow-pop-sm">
-              🔥 Снеки, которых нет в обычных магазинах
+              🚚 Оптовый поставщик импортных снеков и напитков
             </span>
             <h1 className="font-display font-extrabold leading-[0.95] text-5xl md:text-7xl">
-              ВКУС, <span className="text-primary text-stroke text-background">КОТОРЫЙ</span> ВЗРЫВАЕТ
+              ОПТОВЫЕ <span className="text-primary text-stroke text-background">ПОСТАВКИ</span> В СЕТИ
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-md">
-              Импортные чипсы и газировка со всего мира. Острые, редкие и вирусные вкусы — прямо к твоей двери.
+              Прямые контракты с производителями из 20 стран. Наполняем полки федеральных и региональных сетей вирусными вкусами — стабильно и в объёме.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="rounded-full border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary shadow-pop font-bold text-base h-13 px-8" asChild>
-                <a href="#catalog">Смотреть каталог</a>
+                <a href="#contacts">Запросить прайс</a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full border-2 border-foreground bg-background hover:bg-accent shadow-pop-sm font-bold text-base h-13 px-8" asChild>
-                <a href="#sale">🏷️ Акции</a>
+                <a href="#catalog">Ассортимент</a>
               </Button>
             </div>
             <div className="mt-10 flex gap-8">
-              {[['20+', 'стран'], ['500+', 'вкусов'], ['60 мин', 'доставка']].map(([a, b]) => (
+              {[['20+', 'стран-поставщиков'], ['310+', 'позиций (SKU)'], ['от 1', 'паллеты отгрузка']].map(([a, b]) => (
                 <div key={b}>
                   <div className="font-display font-extrabold text-3xl text-primary">{a}</div>
                   <div className="text-sm text-muted-foreground">{b}</div>
@@ -103,66 +106,78 @@ const Index = () => {
           </div>
           <div className="relative animate-scale-in">
             <div className="absolute -inset-4 bg-accent border-2 border-foreground rounded-[2rem] rotate-3" />
-            <img src={HERO} alt="Импортные снеки" className="relative rounded-[2rem] border-2 border-foreground w-full object-cover aspect-square shadow-pop" />
-            <div className="absolute -top-6 -right-4 bg-primary text-primary-foreground font-display font-extrabold text-xl rounded-full w-24 h-24 flex items-center justify-center border-2 border-foreground animate-spin-slow">
-              NEW
+            <img src={HERO} alt="Оптовые поставки снеков" className="relative rounded-[2rem] border-2 border-foreground w-full object-cover aspect-square shadow-pop" />
+            <div className="absolute -top-6 -right-4 bg-primary text-primary-foreground font-display font-extrabold text-lg rounded-full w-24 h-24 flex items-center justify-center border-2 border-foreground animate-spin-slow text-center leading-tight">
+              B2B
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="bg-foreground text-background py-6 border-y-2 border-foreground overflow-hidden">
+        <div className="container flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <span className="text-background/60 text-sm font-semibold">Нам доверяют:</span>
+          {partners.map((p) => (
+            <span key={p} className="font-display font-extrabold text-lg opacity-80">{p}</span>
+          ))}
         </div>
       </section>
 
       {/* Catalog */}
       <section id="catalog" className="container py-14">
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl">КАТАЛОГ</h2>
-          <p className="text-muted-foreground max-w-sm">Самые вирусные снеки недели. Хватай, пока не разобрали.</p>
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl">АССОРТИМЕНТ</h2>
+          <p className="text-muted-foreground max-w-sm">Категории для полки любой сети. Полный прайс — по запросу.</p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {products.map((p, i) => (
+          {categories.map((p, i) => (
             <div key={i} className={`group ${p.color} border-2 border-foreground rounded-2xl p-4 shadow-pop-sm hover:-translate-y-1.5 transition-transform`}>
               <div className="bg-background rounded-xl border-2 border-foreground overflow-hidden mb-3">
                 <img src={p.img} alt={p.name} className="w-full aspect-square object-cover group-hover:scale-105 transition-transform" />
               </div>
               <span className="text-xs font-bold uppercase opacity-70">{p.tag}</span>
               <h3 className="font-display font-bold text-lg leading-tight">{p.name}</h3>
-              <div className="flex items-center justify-between mt-3">
-                <span className="font-display font-extrabold text-xl">{p.price}₽</span>
-                <button onClick={() => setCart((c) => c + 1)} className="bg-foreground text-background rounded-full w-9 h-9 flex items-center justify-center hover:scale-110 transition-transform">
-                  <Icon name="Plus" size={18} />
-                </button>
-              </div>
+              <a href="#contacts" className="mt-3 inline-flex items-center gap-1 font-bold text-sm hover:gap-2 transition-all">
+                Запросить прайс <Icon name="ArrowRight" size={16} />
+              </a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Sale */}
-      <section id="sale" className="py-16 bg-primary text-primary-foreground border-y-2 border-foreground relative overflow-hidden">
-        <div className="container relative">
+      {/* Terms */}
+      <section id="terms" className="py-16 bg-primary text-primary-foreground border-y-2 border-foreground">
+        <div className="container">
           <div className="flex items-center gap-3 mb-10">
-            <Icon name="Flame" size={40} />
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl">ГОРЯЧИЕ АКЦИИ</h2>
+            <Icon name="Handshake" size={40} />
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl">УСЛОВИЯ СОТРУДНИЧЕСТВА</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {sales.map((s, i) => (
-              <div key={i} className="bg-background text-foreground border-2 border-foreground rounded-2xl p-5 shadow-pop relative">
-                <span className="absolute -top-4 -left-3 bg-[hsl(var(--lime))] text-foreground border-2 border-foreground font-display font-extrabold rounded-full px-4 py-1 rotate-[-8deg]">
-                  {s.off}
-                </span>
-                <div className="bg-muted rounded-xl border-2 border-foreground overflow-hidden mb-4">
-                  <img src={s.img} alt={s.name} className="w-full aspect-[4/3] object-cover" />
+          <div className="grid md:grid-cols-4 gap-6">
+            {terms.map((t) => (
+              <div key={t.t} className="bg-background text-foreground border-2 border-foreground rounded-2xl p-6 shadow-pop">
+                <div className="bg-accent text-accent-foreground w-12 h-12 rounded-xl flex items-center justify-center border-2 border-foreground mb-4">
+                  <Icon name={t.icon} size={24} />
                 </div>
-                <h3 className="font-display font-bold text-xl">{s.name}</h3>
-                <div className="flex items-center gap-3 mt-2">
-                  <span className="font-display font-extrabold text-2xl text-primary">{s.price}₽</span>
-                  <span className="line-through text-muted-foreground">{s.old}₽</span>
-                </div>
-                <Button onClick={() => setCart((c) => c + 1)} className="w-full mt-4 rounded-full border-2 border-foreground bg-accent text-accent-foreground hover:bg-accent font-bold">
-                  В корзину
-                </Button>
+                <h3 className="font-display font-bold text-xl">{t.t}</h3>
+                <p className="text-muted-foreground mt-2">{t.d}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Steps */}
+      <section className="container py-16">
+        <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-10">КАК МЫ РАБОТАЕМ</h2>
+        <div className="grid md:grid-cols-4 gap-6">
+          {steps.map((s) => (
+            <div key={s.n} className="border-2 border-foreground rounded-2xl p-6 bg-background shadow-pop-sm relative">
+              <span className="font-display font-extrabold text-5xl text-primary/20">{s.n}</span>
+              <h3 className="font-display font-bold text-xl mt-2">{s.t}</h3>
+              <p className="text-muted-foreground mt-2">{s.d}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -170,18 +185,18 @@ const Index = () => {
       <section id="about" className="container py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="bg-accent border-2 border-foreground rounded-[2rem] p-8 md:p-12 shadow-pop">
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-5">О НАС</h2>
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-5">О КОМПАНИИ</h2>
             <p className="text-lg text-foreground/80">
-              SNACK RUSH — команда охотников за вкусом. Мы находим редкие снеки по всему миру и привозим их в Россию,
-              чтобы ты пробовал то, о чём говорит весь интернет.
+              SNACK OPT — прямой импортёр и дистрибьютор трендовых снеков и напитков. Мы работаем с производителями напрямую,
+              обеспечивая сетям стабильные поставки, легальный ввоз и полный пакет документов.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5">
             {[
-              { icon: 'Globe', t: 'Со всего мира', d: 'США, Япония, Корея, Мексика и ещё 16 стран' },
-              { icon: 'BadgeCheck', t: 'Только оригинал', d: 'Проверенные поставщики, честные сроки' },
-              { icon: 'Truck', t: 'Быстро', d: 'Доставим по городу за час' },
-              { icon: 'Heart', t: 'С любовью', d: 'Пробуем всё сами перед продажей' },
+              { icon: 'Ship', t: 'Прямой импорт', d: 'Без посредников — честная закупочная цена' },
+              { icon: 'BadgeCheck', t: 'Легальный ввоз', d: 'Сертификаты, декларации, маркировка' },
+              { icon: 'Warehouse', t: 'Свой склад', d: 'Товарный запас и быстрая отгрузка' },
+              { icon: 'TrendingUp', t: 'Трендовый ассортимент', d: 'Хиты соцсетей, повышающие оборот полки' },
             ].map((f) => (
               <div key={f.t} className="border-2 border-foreground rounded-2xl p-5 bg-background shadow-pop-sm">
                 <div className="bg-primary text-primary-foreground w-11 h-11 rounded-xl flex items-center justify-center border-2 border-foreground mb-3">
@@ -195,15 +210,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Delivery */}
+      {/* Logistics */}
       <section id="delivery" className="container py-16">
         <div className="bg-[hsl(var(--cyan))] border-2 border-foreground rounded-[2rem] p-8 md:p-12 shadow-pop">
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-10">ДОСТАВКА</h2>
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-10">ЛОГИСТИКА</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: 'Bike', t: 'Курьер за 60 мин', d: 'По городу — 199₽, бесплатно от 2000₽' },
-              { icon: 'Package', t: 'Пункты выдачи', d: 'Забирай сам из 40+ точек рядом' },
-              { icon: 'MapPin', t: 'По всей России', d: 'СДЭК и Почта — 2–5 дней' },
+              { icon: 'Truck', t: 'Доставка на РЦ', d: 'Отгрузка на распределительные центры сетей' },
+              { icon: 'Map', t: 'По всей России', d: 'Собственная и партнёрская логистика' },
+              { icon: 'CalendarClock', t: 'Плановые поставки', d: 'Регулярные отгрузки по графику сети' },
             ].map((d) => (
               <div key={d.t} className="bg-background border-2 border-foreground rounded-2xl p-6 shadow-pop-sm">
                 <Icon name={d.icon} size={30} className="mb-3" />
@@ -219,13 +234,13 @@ const Index = () => {
       <section id="contacts" className="container py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6">КОНТАКТЫ</h2>
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6">ОТДЕЛ ОПТОВЫХ ПРОДАЖ</h2>
             <div className="space-y-4">
               {[
                 { icon: 'Phone', t: '+7 (900) 123-45-67' },
-                { icon: 'Mail', t: 'hello@snackrush.ru' },
-                { icon: 'MapPin', t: 'Москва, ул. Вкусная, 7' },
-                { icon: 'Clock', t: 'Ежедневно 10:00 — 23:00' },
+                { icon: 'Mail', t: 'b2b@snackopt.ru' },
+                { icon: 'MapPin', t: 'Москва, ул. Складская, 7' },
+                { icon: 'Building2', t: 'ООО «Снек Опт» · работаем по договору' },
               ].map((c) => (
                 <div key={c.t} className="flex items-center gap-4">
                   <div className="bg-primary text-primary-foreground w-11 h-11 rounded-xl flex items-center justify-center border-2 border-foreground">
@@ -236,7 +251,7 @@ const Index = () => {
               ))}
             </div>
             <div className="flex gap-3 mt-8">
-              {['Send', 'Instagram', 'Youtube'].map((s) => (
+              {['Send', 'MessageCircle', 'Youtube'].map((s) => (
                 <button key={s} className="bg-foreground text-background w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
                   <Icon name={s} size={20} />
                 </button>
@@ -244,13 +259,14 @@ const Index = () => {
             </div>
           </div>
           <div className="bg-background border-2 border-foreground rounded-[2rem] p-8 shadow-pop">
-            <h3 className="font-display font-bold text-2xl mb-5">Напиши нам 👋</h3>
+            <h3 className="font-display font-bold text-2xl mb-5">Запросить прайс и КП 👋</h3>
             <div className="space-y-4">
-              <input placeholder="Имя" className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors" />
-              <input placeholder="Телефон" className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors" />
-              <textarea placeholder="Сообщение" rows={3} className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors resize-none" />
+              <input placeholder="Название сети / компании" className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors" />
+              <input placeholder="Контактное лицо" className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors" />
+              <input placeholder="Телефон или e-mail" className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors" />
+              <textarea placeholder="Интересующие категории и объёмы" rows={3} className="w-full border-2 border-foreground rounded-xl px-4 py-3 bg-muted focus:outline-none focus:bg-background transition-colors resize-none" />
               <Button className="w-full rounded-full border-2 border-foreground bg-primary text-primary-foreground hover:bg-primary shadow-pop-sm font-bold h-12">
-                Отправить
+                Получить коммерческое предложение
               </Button>
             </div>
           </div>
@@ -261,9 +277,9 @@ const Index = () => {
       <footer className="bg-foreground text-background py-10 border-t-2 border-foreground">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display font-extrabold text-2xl">
-            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">SNACK</span> RUSH
+            <span className="bg-primary text-primary-foreground px-2 rotate-[-4deg] inline-block">SNACK</span> OPT
           </div>
-          <p className="text-sm text-background/60">© 2026 SNACK RUSH. Вкус со всего мира.</p>
+          <p className="text-sm text-background/60">© 2026 SNACK OPT · Оптовые поставки в торговые сети</p>
         </div>
       </footer>
     </div>
