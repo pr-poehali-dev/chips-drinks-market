@@ -37,6 +37,38 @@ const steps = [
 
 const partners = ['РИТЕЙЛ+', 'МЕГАМАРТ', 'ФРЕШ', 'СЕТЬ24', 'GLOBUS', 'СНЕК-МАРКЕТ'];
 
+const brandsByCountry = [
+  {
+    flag: '🇨🇳',
+    country: 'Китай',
+    color: 'bg-[hsl(var(--cyan))]',
+    brands: [
+      { name: 'Pepsi', cat: 'Газировка' },
+      { name: 'Coca-Cola', cat: 'Газировка' },
+      { name: 'Fanta', cat: 'Газировка' },
+      { name: 'Sprite', cat: 'Газировка' },
+      { name: 'Pringles', cat: 'Чипсы' },
+      { name: "Lay's", cat: 'Чипсы' },
+    ],
+  },
+  {
+    flag: '🇰🇷',
+    country: 'Южная Корея',
+    color: 'bg-[hsl(var(--lime))]',
+    brands: [
+      { name: 'Harim', cat: 'Лапша' },
+    ],
+  },
+  {
+    flag: '🇻🇳',
+    country: 'Вьетнам',
+    color: 'bg-accent',
+    brands: [
+      { name: 'Vifon', cat: 'Лапша' },
+    ],
+  },
+];
+
 const Index = () => {
   const marquee = ['🇰🇷 ЮЖНАЯ КОРЕЯ', '🇨🇳 КИТАЙ', '🇻🇳 ВЬЕТНАМ', 'ПРЯМЫЕ КОНТРАКТЫ', 'ОТ 1 ПАЛЛЕТЫ', 'ПОСТАВКИ ПО ВСЕЙ РФ', 'ЭДО И СЕРТИФИКАТЫ'];
 
@@ -141,6 +173,32 @@ const Index = () => {
               <a href="#contacts" className="mt-3 inline-flex items-center gap-1 font-bold text-sm hover:gap-2 transition-all">
                 Запросить прайс <Icon name="ArrowRight" size={16} />
               </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Brands */}
+      <section className="container py-14">
+        <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl">БРЕНДЫ</h2>
+          <p className="text-muted-foreground max-w-sm">Известные марки и азиатские хиты — всё в одном прайсе.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {brandsByCountry.map((group) => (
+            <div key={group.country} className={`${group.color} border-2 border-foreground rounded-2xl p-6 shadow-pop-sm`}>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-4xl">{group.flag}</span>
+                <h3 className="font-display font-extrabold text-2xl">{group.country}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.brands.map((b) => (
+                  <div key={b.name} className="bg-background border-2 border-foreground rounded-xl px-4 py-2 shadow-pop-sm">
+                    <div className="font-display font-bold text-base">{b.name}</div>
+                    <div className="text-xs text-muted-foreground">{b.cat}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
