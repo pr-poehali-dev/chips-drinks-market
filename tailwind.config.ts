@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['"Bricolage Grotesque"', 'sans-serif'],
-				body: ['Rubik', 'sans-serif'],
+				display: ['"Exo 2"', 'sans-serif'],
+				body: ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
